@@ -1,0 +1,243 @@
+/* ========================================================================== 
+   Hair Xpressions Salon — Contact Page Final Polish (V19)
+   --------------------------------------------------------------------------
+   Contact-only stylesheet. All selectors are scoped to body[data-page="contact"]
+   so the approved Home, Services, Our Salon, Gallery and Shop pages remain
+   untouched. Future developers can replace the static email fallback with a
+   CRM/form endpoint without changing the visual structure below.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Cinematic hero
+   -------------------------------------------------------------------------- */
+body[data-page="contact"] .contact-hero {
+  position: relative;
+  min-height: clamp(520px, 62vw, 690px);
+  display: grid;
+  align-items: end;
+  overflow: hidden;
+  color: #fff;
+  background: #120d0e;
+}
+body[data-page="contact"] .contact-hero-media,
+body[data-page="contact"] .contact-hero-media::after {
+  position: absolute;
+  inset: 0;
+}
+body[data-page="contact"] .contact-hero-media picture,
+body[data-page="contact"] .contact-hero-media img {
+  width: 100%;
+  height: 100%;
+}
+body[data-page="contact"] .contact-hero-media img {
+  object-fit: cover;
+  object-position: 50% 46%;
+  transform: scale(1.045);
+  animation: contactHeroDrift 18s ease-in-out infinite alternate;
+}
+body[data-page="contact"] .contact-hero-media::after {
+  content: "";
+  background:
+    linear-gradient(90deg, rgba(10,7,8,.94) 0%, rgba(13,8,10,.75) 48%, rgba(12,8,9,.34) 100%),
+    linear-gradient(180deg, rgba(9,6,7,.18) 0%, rgba(9,6,7,.72) 100%);
+}
+body[data-page="contact"] .contact-hero-content {
+  position: relative;
+  z-index: 1;
+  width: min(calc(100% - 40px), 1180px);
+  margin-inline: auto;
+  padding: clamp(110px, 14vw, 180px) 0 clamp(72px, 9vw, 110px);
+}
+body[data-page="contact"] .contact-hero-content h1 {
+  max-width: 780px;
+  margin: 18px 0 22px;
+  font-size: clamp(4rem, 8vw, 7.4rem);
+}
+body[data-page="contact"] .contact-hero-content > p {
+  max-width: 690px;
+  margin-bottom: 28px;
+  color: rgba(255,255,255,.82);
+  font-size: clamp(1rem, 1.5vw, 1.17rem);
+  line-height: 1.75;
+}
+body[data-page="contact"] .contact-hero-actions { display:flex; flex-wrap:wrap; gap:12px; }
+@keyframes contactHeroDrift {
+  from { transform: scale(1.045) translate3d(0,0,0); }
+  to { transform: scale(1.105) translate3d(-1.3%, -.8%, 0); }
+}
+
+/* --------------------------------------------------------------------------
+   2. Contact information + form
+   -------------------------------------------------------------------------- */
+body[data-page="contact"] .contact-connect-section {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 5% 12%, rgba(229,31,50,.075), transparent 28%),
+    linear-gradient(180deg, #fff 0%, #fbf4ef 100%);
+}
+body[data-page="contact"] .contact-connect-grid {
+  display:grid;
+  grid-template-columns:minmax(330px,.82fr) minmax(520px,1.18fr);
+  gap:clamp(24px,4vw,48px);
+  align-items:stretch;
+}
+body[data-page="contact"] .contact-detail-card,
+body[data-page="contact"] .contact-form-card {
+  border:1px solid rgba(153,94,91,.19);
+  border-radius:30px;
+  background:rgba(255,255,255,.92);
+  box-shadow:0 30px 80px rgba(54,27,30,.10);
+  overflow:hidden;
+}
+body[data-page="contact"] .contact-detail-media {
+  position:relative;
+  height:220px;
+  overflow:hidden;
+}
+body[data-page="contact"] .contact-detail-media img { width:100%; height:100%; object-fit:cover; object-position:center 55%; }
+body[data-page="contact"] .contact-detail-media::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 40%,rgba(14,9,10,.58)); }
+body[data-page="contact"] .contact-detail-media figcaption {
+  position:absolute; z-index:1; left:24px; bottom:20px; color:#fff; font-weight:800; letter-spacing:.1em; text-transform:uppercase; font-size:.7rem;
+}
+body[data-page="contact"] .contact-detail-copy { padding:clamp(28px,4vw,42px); }
+body[data-page="contact"] .contact-detail-copy h2 { margin:10px 0 22px; font-size:clamp(2.8rem,4.7vw,4.45rem); }
+body[data-page="contact"] .contact-list li { padding:17px 0; grid-template-columns:84px minmax(0,1fr); }
+body[data-page="contact"] .contact-list span,
+body[data-page="contact"] .contact-list a { color:#443b39; font-size:.94rem; line-height:1.65; }
+body[data-page="contact"] .contact-status {
+  display:inline-flex; align-items:center; gap:9px; margin-top:22px; padding:9px 13px; border-radius:999px; background:#fff0f1; color:#71232d; font-size:.76rem; font-weight:800;
+}
+body[data-page="contact"] .contact-status::before { content:""; width:8px; height:8px; border-radius:50%; background:#ef2942; box-shadow:0 0 0 5px rgba(239,41,66,.11); }
+body[data-page="contact"] .contact-social-row { display:flex; gap:10px; margin-top:20px; }
+body[data-page="contact"] .contact-social-row a { display:grid; place-items:center; width:40px; height:40px; border:1px solid rgba(21,19,19,.12); border-radius:50%; background:#fff; transition:transform .2s ease, box-shadow .2s ease; }
+body[data-page="contact"] .contact-social-row a:hover { transform:translateY(-3px); box-shadow:0 12px 28px rgba(25,16,18,.12); }
+body[data-page="contact"] .contact-social-row img { width:20px; height:20px; }
+body[data-page="contact"] .contact-form-card { padding:clamp(32px,5vw,60px); }
+body[data-page="contact"] .contact-form-card h2 { margin:10px 0 14px; font-size:clamp(3rem,5vw,5rem); }
+body[data-page="contact"] .contact-form-card > p { max-width:650px; margin-bottom:32px; color:#665b58; }
+body[data-page="contact"] .form-field input,
+body[data-page="contact"] .form-field select,
+body[data-page="contact"] .form-field textarea { min-height:58px; border-radius:13px; background:#fcf7f3; }
+body[data-page="contact"] .form-field textarea { min-height:155px; }
+body[data-page="contact"] .form-actions { justify-content:space-between; }
+body[data-page="contact"] .form-note { max-width:360px; line-height:1.55; }
+body[data-page="contact"] .hp-field { position:absolute!important; left:-9999px!important; width:1px!important; height:1px!important; overflow:hidden!important; }
+
+/* --------------------------------------------------------------------------
+   3. Directions and arrival information
+   -------------------------------------------------------------------------- */
+body[data-page="contact"] .contact-directions { background:linear-gradient(180deg,#f5e8e1 0%,#f0e1da 100%); }
+body[data-page="contact"] .directions-layout { display:grid; grid-template-columns:minmax(0,1.45fr) minmax(300px,.55fr); gap:24px; align-items:stretch; }
+body[data-page="contact"] .contact-map { min-height:560px; border-radius:30px; border:8px solid rgba(255,255,255,.72); box-shadow:0 28px 74px rgba(52,29,30,.14); }
+body[data-page="contact"] .contact-map iframe { min-height:560px; }
+body[data-page="contact"] .arrival-card { padding:clamp(30px,4vw,44px); border:1px solid rgba(167,100,100,.22); border-radius:30px; background:rgba(255,250,247,.88); box-shadow:0 25px 62px rgba(52,29,30,.10); }
+body[data-page="contact"] .arrival-card h3 { margin:12px 0 18px; font-size:clamp(2.4rem,4vw,3.5rem); }
+body[data-page="contact"] .arrival-card p { color:#655a57; }
+body[data-page="contact"] .arrival-list { list-style:none; margin:28px 0 30px; padding:0; border-top:1px solid rgba(21,19,19,.11); }
+body[data-page="contact"] .arrival-list li { padding:16px 0; border-bottom:1px solid rgba(21,19,19,.11); display:grid; gap:4px; }
+body[data-page="contact"] .arrival-list small { color:#9b4b56; font-size:.66rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+body[data-page="contact"] .arrival-list strong { font-size:.96rem; }
+
+/* --------------------------------------------------------------------------
+   4. Helpful details / FAQ
+   -------------------------------------------------------------------------- */
+body[data-page="contact"] .contact-faq-section { background:#fff; }
+body[data-page="contact"] .contact-faq-layout { grid-template-columns:minmax(270px,.52fr) minmax(520px,1fr); gap:clamp(42px,7vw,92px); }
+body[data-page="contact"] .contact-faq-list { border:0; display:grid; gap:12px; }
+body[data-page="contact"] .contact-faq-list .faq-item { border:1px solid rgba(202,118,128,.26); border-radius:18px; background:linear-gradient(180deg,#fffafa,#fff5f4); overflow:hidden; }
+body[data-page="contact"] .contact-faq-list .faq-question { padding:22px 24px; font-family:"Playfair Display",Georgia,serif; font-size:clamp(1.25rem,2vw,1.65rem); }
+body[data-page="contact"] .contact-faq-list .faq-answer p { padding:0 72px 24px 24px; color:#655a57; }
+body[data-page="contact"] .contact-faq-list .faq-item:not(.open) .faq-answer-inner { padding:0; }
+body[data-page="contact"] .contact-faq-list .faq-item.open { box-shadow:0 16px 38px rgba(82,37,42,.08); }
+
+/* --------------------------------------------------------------------------
+   5. Final conversion CTA
+   -------------------------------------------------------------------------- */
+body[data-page="contact"] .contact-cta-section { background:#f7eee8; }
+body[data-page="contact"] .contact-cta-panel {
+  position:relative; overflow:hidden; padding:clamp(48px,7vw,78px); border-radius:30px; color:#fff;
+  background-image:
+    linear-gradient(92deg,rgba(222,25,49,.97) 0%,rgba(217,21,48,.90) 52%,rgba(131,7,26,.72) 100%),
+    image-set(url("../images/about/visit-bg-1600.webp") 1x,url("../images/about/visit-bg-2400.webp") 2x);
+  background-size:auto,108%; background-position:0 0,50% 50%;
+  box-shadow:0 30px 68px rgba(166,22,42,.2); animation:contactCtaDrift 18s ease-in-out infinite alternate;
+}
+body[data-page="contact"] .contact-cta-panel h2 { max-width:760px; margin:12px 0 18px; font-size:clamp(3.1rem,6vw,5.8rem); }
+body[data-page="contact"] .contact-cta-panel p { max-width:690px; color:rgba(255,255,255,.88); font-size:1rem; }
+@keyframes contactCtaDrift { from{background-position:0 0,50% 47%} to{background-position:0 0,54% 53%} }
+
+/* --------------------------------------------------------------------------
+   6. Approved footer + compact floating contact actions
+   -------------------------------------------------------------------------- */
+body[data-page="contact"] .home-footer-v5 { position:relative; background:radial-gradient(circle at 90% 10%,rgba(218,44,66,.12),transparent 22%),linear-gradient(180deg,#100b0c 0%,#090607 100%); }
+body[data-page="contact"] .footer-brand-strip { display:flex; justify-content:space-between; gap:30px; align-items:center; padding:22px 0; border-top:1px solid rgba(255,255,255,.08); border-bottom:1px solid rgba(255,255,255,.08); }
+body[data-page="contact"] .footer-social-area,
+body[data-page="contact"] .footer-payment-area { display:flex; gap:16px; align-items:center; }
+body[data-page="contact"] .footer-small-label { color:rgba(255,255,255,.58); font-size:.72rem; font-weight:800; letter-spacing:.13em; text-transform:uppercase; }
+body[data-page="contact"] .social-logo-links,
+body[data-page="contact"] .payment-logo-row { display:flex; gap:10px; align-items:center; }
+body[data-page="contact"] .social-logo-links a { display:grid; place-items:center; width:38px; height:38px; border:1px solid rgba(255,255,255,.12); border-radius:50%; background:rgba(255,255,255,.05); transition:transform .2s ease,background .2s ease; }
+body[data-page="contact"] .social-logo-links a:hover { transform:translateY(-3px); background:rgba(255,255,255,.09); }
+body[data-page="contact"] .social-logo-links img { width:19px; height:19px; }
+body[data-page="contact"] .payment-logo-row img { width:42px; max-height:26px; padding:5px; border-radius:6px; background:#fff; }
+body[data-page="contact"] .footer-bottom-refined { justify-content:flex-start; }
+body[data-page="contact"] .footer-contact-fab { position:fixed; right:max(18px,env(safe-area-inset-right)); bottom:max(18px,env(safe-area-inset-bottom)); z-index:150; display:grid; gap:10px; justify-items:end; }
+body[data-page="contact"] .fab-action { display:flex; align-items:center; gap:0; width:58px; min-width:58px; min-height:58px; padding:10px; overflow:hidden; border-radius:19px; color:#fff; box-shadow:0 18px 48px rgba(16,8,10,.22); transition:width .26s ease,gap .26s ease,border-radius .26s ease,transform .2s ease; }
+body[data-page="contact"] .fab-action:hover,
+body[data-page="contact"] .fab-action:focus-visible { gap:12px; width:218px; border-radius:18px; transform:translateY(-2px); }
+body[data-page="contact"] .fab-message { background:rgba(17,12,13,.92); border:1px solid rgba(255,255,255,.12); backdrop-filter:blur(12px); }
+body[data-page="contact"] .fab-call { background:linear-gradient(135deg,#f32640,#cf102b); }
+body[data-page="contact"] .fab-icon { display:grid; place-items:center; width:38px; height:38px; flex:0 0 auto; border-radius:50%; background:rgba(255,255,255,.12); }
+body[data-page="contact"] .fab-icon svg { width:22px; height:22px; }
+body[data-page="contact"] .fab-action > span:last-child { display:grid; min-width:138px; opacity:0; transform:translateX(8px); transition:opacity .18s ease .04s,transform .22s ease .04s; }
+body[data-page="contact"] .fab-action:hover > span:last-child,
+body[data-page="contact"] .fab-action:focus-visible > span:last-child { opacity:1; transform:translateX(0); }
+body[data-page="contact"] .fab-action small { color:rgba(255,255,255,.68); font-size:.66rem; }
+body[data-page="contact"] .fab-action strong { font-size:.88rem; }
+
+/* --------------------------------------------------------------------------
+   7. Responsive finishing pass
+   -------------------------------------------------------------------------- */
+@media (max-width: 1000px) {
+  body[data-page="contact"] .contact-connect-grid,
+  body[data-page="contact"] .directions-layout,
+  body[data-page="contact"] .contact-faq-layout { grid-template-columns:1fr; }
+  body[data-page="contact"] .faq-intro { position:static; }
+  body[data-page="contact"] .arrival-card { display:grid; grid-template-columns:1fr 1fr; gap:0 30px; }
+  body[data-page="contact"] .arrival-card .btn-row { grid-column:1/-1; }
+}
+@media (max-width: 760px) {
+  body[data-page="contact"] { padding-bottom:76px; }
+  body[data-page="contact"] .contact-hero { min-height:540px; }
+  body[data-page="contact"] .contact-hero-media img { object-position:62% 50%; }
+  body[data-page="contact"] .contact-hero-content h1 { font-size:clamp(3.45rem,15vw,5rem); }
+  body[data-page="contact"] .form-grid { grid-template-columns:1fr; }
+  body[data-page="contact"] .contact-detail-media { height:190px; }
+  body[data-page="contact"] .arrival-card { grid-template-columns:1fr; }
+  body[data-page="contact"] .contact-map,
+  body[data-page="contact"] .contact-map iframe { min-height:430px; }
+  body[data-page="contact"] .footer-brand-strip { align-items:flex-start; flex-direction:column; }
+  body[data-page="contact"] .footer-payment-area { align-items:flex-start; flex-direction:column; }
+  body[data-page="contact"] .footer-contact-fab { right:12px; bottom:12px; display:flex; }
+  body[data-page="contact"] .fab-action,
+  body[data-page="contact"] .fab-action:hover,
+  body[data-page="contact"] .fab-action:focus-visible { min-width:0; width:52px; height:52px; min-height:52px; padding:7px; border-radius:50%; transform:none; }
+  body[data-page="contact"] .fab-action > span:last-child { display:none!important; }
+}
+@media (max-width: 520px) {
+  body[data-page="contact"] .contact-list li { grid-template-columns:1fr; gap:5px; }
+  body[data-page="contact"] .contact-form-card,
+  body[data-page="contact"] .contact-detail-copy { padding:26px 22px; }
+  body[data-page="contact"] .contact-faq-list .faq-question { padding:19px 18px; gap:16px; }
+  body[data-page="contact"] .contact-faq-list .faq-answer p { padding:0 54px 21px 18px; }
+  body[data-page="contact"] .contact-cta-panel { padding:42px 24px; background-size:auto,cover; }
+}
+
+/* Respect the visitor's operating-system motion setting. */
+@media (prefers-reduced-motion: reduce) {
+  body[data-page="contact"] .contact-hero-media img,
+  body[data-page="contact"] .contact-cta-panel,
+  body[data-page="contact"] .fab-action,
+  body[data-page="contact"] .social-logo-links a { animation:none!important; transition:none!important; transform:none!important; }
+}

@@ -1,0 +1,566 @@
+/* ========================================================================== 
+   Hair Xpressions Salon — Final Home Page Polish (V9)
+   --------------------------------------------------------------------------
+   This stylesheet is loaded after style.css and contains only the final,
+   home-page-specific refinements. Keeping these rules in a separate file
+   makes the approved homepage easier for future developers to maintain.
+   All selectors are scoped to body[data-page="home"] unless a shared header
+   improvement is intentional.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Shared header readability
+   -------------------------------------------------------------------------- */
+.topbar {
+  font-size: 0.83rem;
+  letter-spacing: 0.01em;
+}
+
+.topbar-inner {
+  min-height: 38px;
+}
+
+.nav-list > li > a:not(.btn) {
+  font-size: 0.87rem;
+  color: #241e1f;
+}
+
+.brand img {
+  width: clamp(195px, 21vw, 305px);
+}
+
+.site-header.scrolled {
+  box-shadow: 0 16px 46px rgba(24, 13, 15, 0.13);
+}
+
+/* --------------------------------------------------------------------------
+   2. Hero: stronger readability and calmer first image sequence
+   -------------------------------------------------------------------------- */
+body[data-page="home"] .hero-copy {
+  max-width: 670px;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: clamp(1.07rem, 1.55vw, 1.24rem);
+  line-height: 1.72;
+}
+
+body[data-page="home"] .hero-trust-line {
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+body[data-page="home"] .hero-thumbnail-rail .hero-nav-dot {
+  min-height: 70px;
+  border-color: rgba(255, 255, 255, 0.19);
+  background: rgba(14, 10, 11, 0.66);
+}
+
+body[data-page="home"] .hero-thumbnail-rail .hero-nav-dot > span {
+  font-size: 0.8rem;
+}
+
+/* --------------------------------------------------------------------------
+   3. Booking concierge: customer-focused content and improved contrast
+   -------------------------------------------------------------------------- */
+body[data-page="home"] .booking-concierge-panel {
+  background:
+    linear-gradient(120deg, rgba(9, 7, 8, 0.92), rgba(16, 9, 11, 0.76)),
+    radial-gradient(circle at 88% 10%, rgba(237, 43, 70, 0.28), transparent 31%),
+    url('../images/hero-salon.jpg') center 46% / cover no-repeat;
+}
+
+body[data-page="home"] .concierge-heading p {
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 1rem;
+}
+
+body[data-page="home"] .concierge-stats span {
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.74rem;
+}
+
+body[data-page="home"] .concierge-services a {
+  font-size: 0.82rem;
+  padding-inline: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   4. Signature services: readable copy and consistent blush cards
+   -------------------------------------------------------------------------- */
+body[data-page="home"] .home-services-section .service-showcase-card {
+  border-color: rgba(188, 108, 121, 0.38);
+}
+
+body[data-page="home"] .home-services-section .service-card-copy {
+  padding: 24px 23px 26px;
+}
+
+body[data-page="home"] .home-services-section .service-card-copy h3 {
+  font-size: clamp(1.78rem, 2.15vw, 2.15rem);
+}
+
+body[data-page="home"] .home-services-section .service-card-copy > p {
+  color: #5f5351;
+  font-size: 0.96rem;
+  line-height: 1.72;
+}
+
+body[data-page="home"] .home-services-section .mini-list li {
+  font-size: 0.78rem;
+  border: 1px solid rgba(180, 112, 123, 0.12);
+}
+
+body[data-page="home"] .home-services-section .text-link {
+  font-size: 0.81rem;
+}
+
+body[data-page="home"] .home-services-section .service-showcase-card:nth-child(6) .service-thumb img {
+  object-position: 50% 48%;
+}
+
+/* --------------------------------------------------------------------------
+   5. Salon experience story: larger imagery and less unused space
+   -------------------------------------------------------------------------- */
+body[data-page="home"] .home-story-v5 {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(221, 46, 70, 0.13), transparent 27%),
+    radial-gradient(circle at 88% 78%, rgba(185, 132, 115, 0.12), transparent 25%),
+    linear-gradient(145deg, #160f11 0%, #0f0a0b 58%, #1b1113 100%);
+}
+
+body[data-page="home"] .story-luxe-layout {
+  grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+  gap: clamp(52px, 7vw, 94px);
+}
+
+body[data-page="home"] .story-luxe-media {
+  min-height: 690px;
+}
+
+body[data-page="home"] .story-image-main {
+  width: 74%;
+  height: 640px;
+}
+
+body[data-page="home"] .story-image-side {
+  width: 39%;
+  height: 250px;
+}
+
+body[data-page="home"] .story-image-detail {
+  width: 42%;
+  height: 235px;
+}
+
+body[data-page="home"] .story-image-main img {
+  object-position: 50% 42%;
+}
+
+body[data-page="home"] .story-image-side img {
+  object-position: 50% 52%;
+}
+
+body[data-page="home"] .story-image-detail img {
+  object-position: 50% 48%;
+}
+
+body[data-page="home"] .story-signature-card {
+  left: 42%;
+  width: min(50%, 285px);
+  padding: 18px 20px;
+}
+
+body[data-page="home"] .story-luxe-copy {
+  max-width: 650px;
+}
+
+body[data-page="home"] .story-luxe-copy h2 {
+  max-width: 630px;
+  font-size: clamp(3.2rem, 5.2vw, 5.55rem);
+}
+
+body[data-page="home"] .story-luxe-copy > p {
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 1.02rem;
+  line-height: 1.78;
+}
+
+body[data-page="home"] .story-value-grid article {
+  background: rgba(255, 255, 255, 0.055);
+  border-color: rgba(255, 255, 255, 0.11);
+}
+
+body[data-page="home"] .story-value-grid article p {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.88rem;
+}
+
+/* --------------------------------------------------------------------------
+   6. Lookbook: denser editorial layout and stronger visual polish
+   -------------------------------------------------------------------------- */
+body[data-page="home"] .home-lookbook-v5 {
+  background:
+    radial-gradient(circle at 6% 88%, rgba(216, 57, 80, 0.09), transparent 26%),
+    radial-gradient(circle at 94% 12%, rgba(166, 124, 109, 0.12), transparent 24%),
+    linear-gradient(180deg, #f7eee7 0%, #eee0d6 100%);
+}
+
+body[data-page="home"] .lookbook-heading-v5 {
+  margin-bottom: clamp(34px, 4.6vw, 58px);
+}
+
+body[data-page="home"] .lookbook-heading-v5 p {
+  color: #625653;
+  font-size: 1rem;
+}
+
+body[data-page="home"] .lookbook-grid-v5 {
+  gap: 12px;
+  min-height: 780px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.62);
+  border-color: rgba(167, 111, 101, 0.24);
+}
+
+body[data-page="home"] .lookbook-grid-v5 .lookbook-item {
+  border-radius: 18px;
+  border-color: rgba(255, 255, 255, 0.72);
+}
+
+body[data-page="home"] .lookbook-grid-v5 .lookbook-caption {
+  left: 15px;
+  right: 15px;
+  bottom: 14px;
+}
+
+body[data-page="home"] .lookbook-grid-v5 .lookbook-caption small {
+  font-size: 0.66rem;
+}
+
+/* --------------------------------------------------------------------------
+   7. Service directory: warm card treatment and easier-to-read pricing
+   -------------------------------------------------------------------------- */
+body[data-page="home"] .service-directory-section {
+  background: linear-gradient(180deg, #fbf7f2 0%, #f6ede7 100%);
+}
+
+body[data-page="home"] .service-directory-copy h2 {
+  max-width: 610px;
+}
+
+body[data-page="home"] .service-directory-copy p {
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+body[data-page="home"] .service-directory-board {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(219, 53, 78, 0.07), transparent 28%),
+    linear-gradient(180deg, #fffaf7 0%, #f5eae4 100%);
+  border-color: rgba(174, 113, 103, 0.24);
+}
+
+body[data-page="home"] .directory-grid span {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(174, 113, 103, 0.13);
+  font-size: 0.87rem;
+}
+
+body[data-page="home"] .price-item strong,
+body[data-page="home"] .price-value {
+  font-size: 0.94rem;
+}
+
+/* --------------------------------------------------------------------------
+   8. Event banner: lighter overlay with text protected from image detail
+   -------------------------------------------------------------------------- */
+body[data-page="home"] .luxe-banner-bg img {
+  filter: brightness(0.58) saturate(0.92);
+}
+
+body[data-page="home"] .luxe-banner-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(90deg, rgba(10, 7, 8, 0.82) 0%, rgba(10, 7, 8, 0.56) 46%, rgba(10, 7, 8, 0.10) 82%);
+  pointer-events: none;
+}
+
+body[data-page="home"] .luxe-banner-copy {
+  z-index: 2;
+  margin-left: 1.5%;
+}
+
+/* --------------------------------------------------------------------------
+   9. Testimonials: stronger review hierarchy and visible controls
+   -------------------------------------------------------------------------- */
+body[data-page="home"] .home-testimonials-section .section-header > p {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 1rem;
+}
+
+body[data-page="home"] .home-testimonials-section .testimonial-shell {
+  max-width: 1040px;
+  margin-inline: auto;
+  padding: clamp(28px, 4.5vw, 48px);
+  background: rgba(7, 5, 6, 0.52);
+}
+
+body[data-page="home"] .testimonial-stars {
+  color: #ff6679;
+  letter-spacing: 0.12em;
+  margin-right: 9px;
+}
+
+body[data-page="home"] .testimonial-slide blockquote {
+  max-width: 850px;
+  font-size: clamp(1.75rem, 3.3vw, 3.2rem);
+}
+
+body[data-page="home"] .testimonial-meta strong,
+body[data-page="home"] .testimonial-meta span {
+  font-size: 0.84rem;
+}
+
+body[data-page="home"] .slider-arrow {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+body[data-page="home"] .slider-arrow:hover {
+  background: rgba(229, 31, 50, 0.32);
+}
+
+/* --------------------------------------------------------------------------
+   10. Final CTA: customer-facing message and premium readability
+   -------------------------------------------------------------------------- */
+body[data-page="home"] .home-launch-section .cta-panel h2 {
+  max-width: 760px;
+}
+
+body[data-page="home"] .home-launch-section .cta-panel p {
+  max-width: 670px;
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+/* --------------------------------------------------------------------------
+   11. Footer: larger details and safe spacing around floating contact actions
+   -------------------------------------------------------------------------- */
+body[data-page="home"] .home-footer-v5 {
+  padding-bottom: 96px;
+}
+
+body[data-page="home"] .footer-brand p,
+body[data-page="home"] .footer-links {
+  font-size: 0.9rem;
+  line-height: 1.72;
+}
+
+body[data-page="home"] .social-logo-links a {
+  width: 46px;
+  height: 46px;
+}
+
+body[data-page="home"] .payment-logo-row img {
+  width: 70px;
+  height: 42px;
+}
+
+/* --------------------------------------------------------------------------
+   12. Responsive behavior
+   -------------------------------------------------------------------------- */
+@media (max-width: 1100px) {
+  body[data-page="home"] .story-luxe-layout {
+    grid-template-columns: 1fr;
+  }
+
+  body[data-page="home"] .story-luxe-copy {
+    max-width: 800px;
+  }
+
+  body[data-page="home"] .lookbook-grid-v5 {
+    min-height: 670px;
+  }
+}
+
+@media (max-width: 780px) {
+  .topbar {
+    font-size: 0.76rem;
+  }
+
+  body[data-page="home"] .story-image-main {
+    width: 70%;
+    height: 500px;
+  }
+
+  body[data-page="home"] .story-luxe-copy h2 {
+    font-size: clamp(3rem, 11vw, 4.6rem);
+  }
+
+  body[data-page="home"] .lookbook-grid-v5 {
+    min-height: auto;
+  }
+
+  body[data-page="home"] .footer-brand-strip {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 560px) {
+  body[data-page="home"] {
+    padding-bottom: 74px;
+  }
+
+  body[data-page="home"] .hero-copy {
+    font-size: 1rem;
+  }
+
+  body[data-page="home"] .hero-thumbnail-rail .hero-nav-dot {
+    min-width: 174px;
+  }
+
+  body[data-page="home"] .home-services-section .service-card-copy {
+    padding: 22px 20px 24px;
+  }
+
+  body[data-page="home"] .home-services-section .service-card-copy > p {
+    font-size: 0.94rem;
+  }
+
+  body[data-page="home"] .story-luxe-media {
+    min-height: 470px;
+  }
+
+  body[data-page="home"] .story-image-main {
+    width: 74%;
+    height: 420px;
+  }
+
+  body[data-page="home"] .story-signature-card {
+    left: 28%;
+    width: 68%;
+  }
+
+  body[data-page="home"] .lookbook-grid-v5 {
+    gap: 10px;
+  }
+
+  body[data-page="home"] .lookbook-grid-v5 .lookbook-caption strong {
+    font-size: 1.18rem;
+  }
+
+  body[data-page="home"] .home-footer-v5 {
+    padding-bottom: 82px;
+  }
+
+  body[data-page="home"] .payment-logo-row img {
+    width: 60px;
+    height: 37px;
+  }
+
+  /* On phones the floating contact widget becomes two compact circular icons,
+     preventing it from covering footer text or payment logos. */
+  body[data-page="home"] .footer-contact-fab {
+    right: 12px;
+    bottom: 12px;
+    width: auto;
+    display: flex;
+    gap: 9px;
+  }
+
+  body[data-page="home"] .fab-action {
+    display: inline-flex;
+    width: 54px;
+    height: 54px;
+    min-height: 54px;
+    padding: 6px;
+    border-radius: 50%;
+  }
+
+  body[data-page="home"] .fab-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+  }
+
+  body[data-page="home"] .fab-action > span:last-child {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body[data-page="home"] .hero-slide,
+  body[data-page="home"] .lookbook-item img,
+  body[data-page="home"] .service-thumb img {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ==========================================================================
+   V14 approved Home footer quick-contact controls
+   --------------------------------------------------------------------------
+   User requested the Home message/call controls to behave exactly like the
+   compact Services Overview controls. These overrides intentionally affect
+   ONLY body[data-page="home"] and do not change any Home section/layout.
+   ========================================================================== */
+body[data-page="home"] .footer-contact-fab {
+  right: max(18px, env(safe-area-inset-right));
+  bottom: max(18px, env(safe-area-inset-bottom));
+  width: auto;
+  justify-items: end;
+}
+body[data-page="home"] .fab-action {
+  display: flex;
+  grid-template-columns: none;
+  gap: 0;
+  align-items: center;
+  width: 58px;
+  min-width: 58px;
+  min-height: 58px;
+  padding: 10px;
+  overflow: hidden;
+  border-radius: 19px;
+  box-shadow: 0 18px 48px rgba(16,8,10,.22);
+  transition: width 260ms ease, gap 260ms ease, border-radius 260ms ease, transform 200ms ease;
+}
+body[data-page="home"] .fab-action:hover,
+body[data-page="home"] .fab-action:focus-visible {
+  gap: 12px;
+  width: 218px;
+  border-radius: 18px;
+  transform: translateY(-2px);
+}
+body[data-page="home"] .fab-icon { width: 38px; height: 38px; flex: 0 0 auto; border-radius: 50%; }
+body[data-page="home"] .fab-icon svg { width: 22px; height: 22px; }
+body[data-page="home"] .fab-action > span:last-child {
+  display: grid;
+  min-width: 138px;
+  opacity: 0;
+  transform: translateX(8px);
+  transition: opacity 180ms ease 40ms, transform 220ms ease 40ms;
+}
+body[data-page="home"] .fab-action:hover > span:last-child,
+body[data-page="home"] .fab-action:focus-visible > span:last-child { opacity: 1; transform: translateX(0); }
+@media (max-width: 560px) {
+  body[data-page="home"] { padding-bottom: 76px; }
+  body[data-page="home"] .footer-contact-fab { right: 12px; bottom: 12px; display: flex; width: auto; }
+  body[data-page="home"] .fab-action,
+  body[data-page="home"] .fab-action:hover,
+  body[data-page="home"] .fab-action:focus-visible {
+    min-width: 0; width: 52px; height: 52px; min-height: 52px; padding: 7px; border-radius: 50%; transform: none;
+  }
+  body[data-page="home"] .fab-action > span:last-child,
+  body[data-page="home"] .fab-action:hover > span:last-child,
+  body[data-page="home"] .fab-action:focus-visible { display:none; }
+  body[data-page="home"] .fab-icon { width:38px; height:38px; }
+}

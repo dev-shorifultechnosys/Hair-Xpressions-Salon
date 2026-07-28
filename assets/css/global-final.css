@@ -1,0 +1,747 @@
+/* ========================================================================== 
+   Hair Xpressions Salon — Global Header & Footer Finalisation (V21)
+   --------------------------------------------------------------------------
+   This stylesheet is loaded LAST on every HTML page. It intentionally owns
+   only the shared top utility bar, primary header polish, global footer and
+   floating contact controls. Page-specific section layouts remain untouched.
+
+   Future developers:
+   - Update salon contact details in the shared HTML blocks on every page.
+   - Keep payment wording as “Cards accepted at pickup” until online payment
+     processing is connected and approved by the salon.
+   - The SVG icons are vector-based and remain sharp on retina displays.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Luxury utility bar
+   -------------------------------------------------------------------------- */
+body[data-page] .global-topbar {
+  position: relative;
+  z-index: 1100;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.86);
+  background:
+    radial-gradient(circle at 16% -180%, rgba(237, 31, 62, 0.28), transparent 38%),
+    radial-gradient(circle at 88% 250%, rgba(159, 28, 45, 0.21), transparent 35%),
+    linear-gradient(105deg, #080607 0%, #130d0f 51%, #090607 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.075);
+  box-shadow: 0 8px 24px rgba(12, 7, 8, 0.16);
+  font-family: "Manrope", Arial, sans-serif;
+}
+
+body[data-page] .global-topbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.42;
+  background: linear-gradient(110deg, transparent 0 46%, rgba(255, 255, 255, 0.035) 50%, transparent 54%);
+}
+
+body[data-page] .global-topbar::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(239, 35, 66, 0.72), transparent);
+}
+
+body[data-page] .global-topbar .topbar-inner {
+  position: relative;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(18px, 3vw, 46px);
+}
+
+body[data-page] .global-topbar .topbar-cluster {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: clamp(15px, 2vw, 29px);
+}
+
+body[data-page] .global-topbar .topbar-item,
+body[data-page] .global-topbar .topbar-social {
+  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+  transition: color 220ms ease, transform 220ms ease, opacity 220ms ease;
+}
+
+body[data-page] .global-topbar a.topbar-item:hover,
+body[data-page] .global-topbar .topbar-social:hover {
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+body[data-page] .global-topbar .topbar-icon {
+  width: 25px;
+  height: 25px;
+  flex: 0 0 25px;
+  display: grid;
+  place-items: center;
+  color: #ff3856;
+  border: 1px solid rgba(255, 68, 95, 0.26);
+  border-radius: 50%;
+  background: rgba(239, 35, 66, 0.085);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.025);
+}
+
+body[data-page] .global-topbar .topbar-icon svg {
+  width: 13px;
+  height: 13px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+body[data-page] .global-topbar .topbar-copy {
+  min-width: 0;
+  display: grid;
+  gap: 1px;
+  line-height: 1.05;
+}
+
+body[data-page] .global-topbar .topbar-copy small {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.54rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+body[data-page] .global-topbar .topbar-copy strong,
+body[data-page] .global-topbar .topbar-action-label {
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body[data-page] .global-topbar .topbar-separator {
+  width: 1px;
+  height: 24px;
+  flex: 0 0 1px;
+  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+}
+
+body[data-page] .global-topbar .topbar-hours {
+  gap: 10px;
+}
+
+body[data-page] .global-topbar .topbar-status-dot {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+  border-radius: 50%;
+  background: #ff3d5c;
+  box-shadow: 0 0 0 4px rgba(255, 61, 92, 0.1), 0 0 17px rgba(255, 61, 92, 0.58);
+}
+
+body[data-page] .global-topbar .topbar-status-dot::after {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border: 1px solid rgba(255, 61, 92, 0.34);
+  border-radius: inherit;
+  animation: hxTopbarPulse 2.8s ease-out infinite;
+}
+
+body[data-page] .global-topbar .topbar-social {
+  min-height: 30px;
+  gap: 8px;
+  padding: 4px 11px 4px 5px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.035);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+body[data-page] .global-topbar .topbar-social img {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+@keyframes hxTopbarPulse {
+  0% { opacity: 0.7; transform: scale(0.72); }
+  75%, 100% { opacity: 0; transform: scale(1.45); }
+}
+
+/* --------------------------------------------------------------------------
+   2. Shared primary-header refinement
+   -------------------------------------------------------------------------- */
+body[data-page] .global-site-header {
+  border-bottom: 1px solid rgba(41, 24, 28, 0.075);
+  background: rgba(255, 251, 248, 0.965);
+  box-shadow: 0 10px 34px rgba(35, 17, 21, 0.055);
+  backdrop-filter: blur(20px) saturate(1.08);
+  -webkit-backdrop-filter: blur(20px) saturate(1.08);
+}
+
+body[data-page] .global-site-header.scrolled {
+  border-color: rgba(41, 24, 28, 0.11);
+  box-shadow: 0 18px 48px rgba(35, 17, 21, 0.105);
+}
+
+body[data-page] .global-site-header .brand img {
+  width: clamp(190px, 20vw, 286px);
+  height: auto;
+}
+
+body[data-page] .global-site-header .nav-list > li > a:not(.btn) {
+  position: relative;
+  color: #251c1e;
+  font-size: 0.79rem;
+  font-weight: 750;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+}
+
+body[data-page] .global-site-header .nav-list > li > a:not(.btn)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -10px;
+  left: 0;
+  height: 1px;
+  background: #ef2342;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 220ms ease;
+}
+
+body[data-page] .global-site-header .nav-list > li > a:not(.btn):hover::after,
+body[data-page] .global-site-header .nav-list > li > a:not(.btn).active::after,
+body[data-page] .global-site-header .nav-list > li > a:not(.btn).is-current::after {
+  transform: scaleX(1);
+}
+
+/* --------------------------------------------------------------------------
+   3. Unified premium footer
+   -------------------------------------------------------------------------- */
+body[data-page] .global-site-footer {
+  position: relative;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.68);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background:
+    radial-gradient(circle at 92% 0%, rgba(217, 29, 57, 0.15), transparent 28%),
+    radial-gradient(circle at 10% 100%, rgba(95, 41, 49, 0.14), transparent 32%),
+    linear-gradient(145deg, #100b0c 0%, #090607 57%, #12090b 100%);
+}
+
+body[data-page] .global-site-footer .footer-ambient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.58;
+  background:
+    linear-gradient(125deg, transparent 0 43%, rgba(255, 255, 255, 0.018) 50%, transparent 57%),
+    radial-gradient(circle at 70% 18%, rgba(255, 35, 68, 0.06), transparent 27%);
+}
+
+body[data-page] .global-site-footer .footer-main {
+  position: relative;
+  padding: clamp(64px, 7vw, 94px) 0 clamp(45px, 5vw, 66px);
+  display: grid;
+  grid-template-columns: minmax(280px, 1.35fr) repeat(3, minmax(150px, 0.58fr));
+  gap: clamp(36px, 5vw, 76px);
+}
+
+body[data-page] .global-site-footer .footer-brand img {
+  width: clamp(190px, 17vw, 238px);
+  height: auto;
+  margin: 0 0 24px;
+  filter: brightness(0) invert(1);
+  opacity: 0.96;
+}
+
+body[data-page] .global-site-footer .footer-brand p {
+  max-width: 390px;
+  margin: 0 0 25px;
+  color: rgba(255, 255, 255, 0.63);
+  font-size: 0.92rem;
+  line-height: 1.72;
+}
+
+body[data-page] .global-site-footer .footer-book-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+body[data-page] .global-site-footer .footer-book-link span {
+  color: #ff3d5c;
+  font-size: 1.05rem;
+  transition: transform 200ms ease;
+}
+
+body[data-page] .global-site-footer .footer-book-link:hover span {
+  transform: translateX(4px);
+}
+
+body[data-page] .global-site-footer .footer-col h3 {
+  margin: 4px 0 22px;
+  color: #fff;
+  font-family: "Manrope", Arial, sans-serif;
+  font-size: 0.67rem;
+  font-weight: 800;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+}
+
+body[data-page] .global-site-footer .footer-col h3::after {
+  content: "";
+  width: 26px;
+  height: 1px;
+  display: block;
+  margin-top: 12px;
+  background: linear-gradient(90deg, #ef2342, transparent);
+}
+
+body[data-page] .global-site-footer .footer-links {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+body[data-page] .global-site-footer .footer-links li,
+body[data-page] .global-site-footer .footer-links a,
+body[data-page] .global-site-footer .footer-links span {
+  color: rgba(255, 255, 255, 0.61);
+}
+
+body[data-page] .global-site-footer .footer-links a {
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+body[data-page] .global-site-footer .footer-links a:hover {
+  color: #fff;
+  transform: translateX(3px);
+}
+
+body[data-page] .global-site-footer .footer-brand-strip {
+  position: relative;
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.075);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.075);
+}
+
+body[data-page] .global-site-footer .footer-social-area,
+body[data-page] .global-site-footer .footer-payment-area {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+body[data-page] .global-site-footer .footer-small-label {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+body[data-page] .global-site-footer .social-logo-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+body[data-page] .global-site-footer .social-logo-links a {
+  width: 37px;
+  height: 37px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.035);
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+body[data-page] .global-site-footer .social-logo-links a:hover {
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.075);
+  transform: translateY(-2px);
+}
+
+body[data-page] .global-site-footer .social-logo-links img {
+  width: 21px;
+  height: 21px;
+  display: block;
+}
+
+body[data-page] .global-site-footer .payment-logo-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+body[data-page] .global-site-footer .payment-logo-row img {
+  width: auto;
+  height: 26px;
+  display: block;
+  border-radius: 4px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.17);
+}
+
+body[data-page] .global-site-footer .footer-bottom {
+  position: relative;
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+body[data-page] .global-site-footer .footer-bottom p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.39);
+  font-size: 0.66rem;
+  letter-spacing: 0.015em;
+}
+
+body[data-page] .global-site-footer .footer-signoff {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 0.78rem;
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+/* --------------------------------------------------------------------------
+   4. Shared floating message and call actions
+   -------------------------------------------------------------------------- */
+body[data-page] .global-contact-fab {
+  position: fixed;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  z-index: 1250;
+  display: grid;
+  gap: 9px;
+  justify-items: end;
+}
+
+body[data-page] .global-contact-fab .fab-action {
+  width: 54px;
+  min-height: 54px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 11px;
+  padding: 6px;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(17, 12, 13, 0.95);
+  box-shadow: 0 14px 34px rgba(15, 8, 10, 0.22);
+  backdrop-filter: blur(14px);
+  transition: width 240ms ease, transform 200ms ease, box-shadow 200ms ease;
+}
+
+body[data-page] .global-contact-fab .fab-action:hover,
+body[data-page] .global-contact-fab .fab-action:focus-visible {
+  width: 238px;
+  transform: translateY(-2px);
+  box-shadow: 0 20px 44px rgba(15, 8, 10, 0.29);
+}
+
+body[data-page] .global-contact-fab .fab-call {
+  background: linear-gradient(135deg, #ef2342, #e01838);
+}
+
+body[data-page] .global-contact-fab .fab-icon {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.085);
+}
+
+body[data-page] .global-contact-fab .fab-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+body[data-page] .global-contact-fab .fab-action > span:last-child {
+  min-width: 162px;
+  display: grid;
+  gap: 1px;
+  padding-right: 12px;
+  white-space: nowrap;
+}
+
+body[data-page] .global-contact-fab small {
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 0.57rem;
+}
+
+body[data-page] .global-contact-fab strong {
+  color: #fff;
+  font-size: 0.71rem;
+  letter-spacing: 0.02em;
+}
+
+/* --------------------------------------------------------------------------
+   5. Premium reduced checkout footer
+   -------------------------------------------------------------------------- */
+body[data-page="checkout"] .global-checkout-footer {
+  position: relative;
+  color: rgba(255, 255, 255, 0.64);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  background:
+    radial-gradient(circle at 88% 0%, rgba(219, 32, 60, 0.14), transparent 30%),
+    linear-gradient(135deg, #110b0d, #090607);
+}
+
+body[data-page="checkout"] .global-checkout-footer .checkout-footer-inner {
+  min-height: 118px;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: clamp(28px, 5vw, 72px);
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+
+body[data-page="checkout"] .checkout-footer-brand img {
+  width: 195px;
+  height: auto;
+  filter: brightness(0) invert(1);
+}
+
+body[data-page="checkout"] .checkout-footer-help,
+body[data-page="checkout"] .checkout-footer-payments {
+  display: grid;
+  gap: 8px;
+}
+
+body[data-page="checkout"] .checkout-footer-help span,
+body[data-page="checkout"] .checkout-footer-payments > span {
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 0.57rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+body[data-page="checkout"] .checkout-footer-help a {
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+body[data-page="checkout"] .global-checkout-footer .payment-logo-row {
+  display: flex;
+  gap: 7px;
+}
+
+body[data-page="checkout"] .global-checkout-footer .payment-logo-row img {
+  width: auto;
+  height: 24px;
+}
+
+body[data-page="checkout"] .checkout-footer-bottom {
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+body[data-page="checkout"] .checkout-footer-bottom p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.38);
+  font-size: 0.64rem;
+}
+
+body[data-page="checkout"] .checkout-footer-bottom div {
+  display: flex;
+  gap: 20px;
+}
+
+body[data-page="checkout"] .checkout-footer-bottom a {
+  color: rgba(255, 255, 255, 0.61);
+  font-size: 0.68rem;
+}
+
+/* --------------------------------------------------------------------------
+   6. Responsive behaviour
+   -------------------------------------------------------------------------- */
+@media (max-width: 1180px) {
+  body[data-page] .global-topbar .topbar-email { display: none; }
+  body[data-page] .global-site-footer .footer-main {
+    grid-template-columns: minmax(280px, 1.2fr) repeat(3, minmax(125px, 0.55fr));
+    gap: 34px;
+  }
+}
+
+@media (max-width: 900px) {
+  body[data-page] .global-topbar .topbar-location .topbar-copy small,
+  body[data-page] .global-topbar .topbar-social span { display: none; }
+  body[data-page] .global-topbar .topbar-location .topbar-copy strong { font-size: 0.66rem; }
+  body[data-page] .global-topbar .topbar-social { padding-right: 5px; }
+
+  body[data-page] .global-site-footer .footer-main {
+    grid-template-columns: minmax(250px, 1.2fr) repeat(2, minmax(150px, 0.7fr));
+  }
+  body[data-page] .global-site-footer .footer-main .footer-col:last-child {
+    grid-column: 2 / 4;
+  }
+
+  body[data-page="checkout"] .global-checkout-footer .checkout-footer-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+  body[data-page="checkout"] .checkout-footer-brand { grid-column: 1 / -1; }
+}
+
+@media (max-width: 680px) {
+  body[data-page] .global-topbar .topbar-inner {
+    min-height: 44px;
+    gap: 12px;
+  }
+  body[data-page] .global-topbar .topbar-primary { gap: 11px; }
+  body[data-page] .global-topbar .topbar-separator,
+  body[data-page] .global-topbar .topbar-location { display: none; }
+  body[data-page] .global-topbar .topbar-actions { margin-left: auto; gap: 10px; }
+  body[data-page] .global-topbar .topbar-icon { width: 24px; height: 24px; flex-basis: 24px; }
+  body[data-page] .global-topbar .topbar-copy small { font-size: 0.5rem; }
+  body[data-page] .global-topbar .topbar-copy strong,
+  body[data-page] .global-topbar .topbar-action-label { font-size: 0.63rem; }
+
+  body[data-page] .global-site-header .brand img {
+    width: clamp(170px, 52vw, 225px);
+  }
+
+  body[data-page] .global-site-footer .footer-main {
+    grid-template-columns: 1fr 1fr;
+    gap: 38px 26px;
+    padding-bottom: 46px;
+  }
+  body[data-page] .global-site-footer .footer-brand {
+    grid-column: 1 / -1;
+  }
+  body[data-page] .global-site-footer .footer-main .footer-col:last-child {
+    grid-column: auto;
+  }
+  body[data-page] .global-site-footer .footer-brand-strip {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+  }
+  body[data-page] .global-site-footer .footer-social-area,
+  body[data-page] .global-site-footer .footer-payment-area {
+    width: 100%;
+    justify-content: space-between;
+  }
+  body[data-page] .global-site-footer .footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  body[data-page] .global-contact-fab {
+    right: max(10px, env(safe-area-inset-right));
+    bottom: max(10px, env(safe-area-inset-bottom));
+    display: flex;
+  }
+  body[data-page] .global-contact-fab .fab-action,
+  body[data-page] .global-contact-fab .fab-action:hover,
+  body[data-page] .global-contact-fab .fab-action:focus-visible {
+    width: 48px;
+    min-height: 48px;
+    padding: 4px;
+    transform: none;
+  }
+  body[data-page] .global-contact-fab .fab-icon {
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+  }
+  body[data-page] .global-contact-fab .fab-action > span:last-child { display: none; }
+
+  body[data-page="checkout"] .global-checkout-footer .checkout-footer-inner {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  body[data-page="checkout"] .checkout-footer-brand { grid-column: auto; }
+  body[data-page="checkout"] .checkout-footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 17px;
+    padding-bottom: 17px;
+  }
+}
+
+@media (max-width: 440px) {
+  body[data-page] .global-topbar .topbar-social { display: none; }
+  body[data-page] .global-topbar .topbar-actions { gap: 0; }
+  body[data-page] .global-topbar .topbar-hours .topbar-copy small { display: none; }
+  body[data-page] .global-topbar .topbar-hours { gap: 8px; }
+
+  body[data-page] .global-site-footer .footer-main {
+    grid-template-columns: 1fr;
+  }
+  body[data-page] .global-site-footer .footer-brand,
+  body[data-page] .global-site-footer .footer-main .footer-col:last-child {
+    grid-column: auto;
+  }
+  body[data-page] .global-site-footer .footer-social-area,
+  body[data-page] .global-site-footer .footer-payment-area {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+  body[data-page] .global-site-footer .payment-logo-row img { height: 23px; }
+}
+
+/* Motion accessibility: preserve clarity without pulsing or hover movement. */
+@media (prefers-reduced-motion: reduce) {
+  body[data-page] .global-topbar .topbar-status-dot::after { animation: none; }
+  body[data-page] .global-contact-fab .fab-action,
+  body[data-page] .global-site-footer a,
+  body[data-page] .global-topbar a { transition: none; }
+}

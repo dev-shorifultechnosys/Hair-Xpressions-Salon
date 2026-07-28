@@ -1,0 +1,584 @@
+/* ==========================================================================
+   Hair Xpressions — Our Salon premium page
+   --------------------------------------------------------------------------
+   This file is deliberately scoped to body[data-page="about"] so future
+   developers can edit the salon story without changing the approved Home or
+   Services page layouts. Global tokens, header, buttons and footer still come
+   from style.css.
+   ========================================================================== */
+
+/* ---------- Hero: single cinematic image with gentle, non-distracting motion ---------- */
+body[data-page="about"] .about-hero {
+  min-height: clamp(560px, 72vh, 760px);
+  isolation: isolate;
+}
+body[data-page="about"] .about-hero-media img {
+  opacity: 0.66;
+  transform: scale(1.035);
+  transform-origin: 58% 48%;
+  animation: aboutHeroDrift 16s ease-in-out infinite alternate;
+}
+body[data-page="about"] .about-hero::after {
+  background:
+    linear-gradient(90deg, rgba(15,10,11,.94) 0%, rgba(15,10,11,.75) 40%, rgba(15,10,11,.28) 72%, rgba(15,10,11,.18) 100%),
+    linear-gradient(0deg, rgba(15,10,11,.72), transparent 64%);
+}
+body[data-page="about"] .about-hero-content { padding-bottom: clamp(70px, 8vw, 108px); }
+body[data-page="about"] .about-hero-kicker {
+  display: inline-flex;
+  margin-bottom: 18px;
+  color: #ff7282;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+body[data-page="about"] .about-hero h1 {
+  max-width: 820px;
+  margin-bottom: 24px;
+  font-size: clamp(4.2rem, 8.5vw, 7.4rem);
+  line-height: .88;
+  letter-spacing: -.045em;
+}
+body[data-page="about"] .about-hero p { max-width: 660px; color: rgba(255,255,255,.78); }
+body[data-page="about"] .about-hero-actions { display: flex; align-items: center; gap: 22px; margin-top: 30px; flex-wrap: wrap; }
+body[data-page="about"] .about-hero-link { color: #fff; }
+body[data-page="about"] .about-hero-link::after { background: #fff; }
+@keyframes aboutHeroDrift { from { transform: scale(1.035) translate3d(0,0,0); } to { transform: scale(1.09) translate3d(-1.2%, -.7%, 0); } }
+
+/* ---------- Story: tighter rhythm, premium collage and quieter anniversary mark ---------- */
+body[data-page="about"] .about-story-section { padding-block: clamp(86px, 9vw, 138px); }
+body[data-page="about"] .about-story-grid {
+  display: grid;
+  grid-template-columns: minmax(0, .82fr) minmax(420px, .92fr);
+  gap: clamp(56px, 8vw, 118px);
+  align-items: center;
+}
+body[data-page="about"] .about-story-copy { max-width: 610px; }
+body[data-page="about"] .about-story-copy h2 { margin-bottom: 28px; font-size: clamp(3.25rem, 5vw, 5.15rem); line-height: .94; }
+body[data-page="about"] .about-story-copy p { color: #665c5a; font-size: 1rem; line-height: 1.78; }
+body[data-page="about"] .about-story-points { display: flex; gap: 9px; flex-wrap: wrap; margin-top: 24px; }
+body[data-page="about"] .about-story-points span {
+  padding: 9px 12px;
+  border: 1px solid #ead9d5;
+  border-radius: 999px;
+  color: #625755;
+  background: #fff9f7;
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+body[data-page="about"] .about-story-media {
+  position: relative;
+  min-height: 610px;
+  padding: 0 0 54px 36px;
+}
+body[data-page="about"] .about-story-media > picture > img {
+  display: block;
+  width: 100%;
+  height: 610px;
+  border-radius: 34px 34px 34px 120px;
+  object-fit: cover;
+  box-shadow: 0 34px 70px rgba(39,25,27,.15);
+}
+body[data-page="about"] .about-story-authentic {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 42%;
+  padding: 8px 8px 10px;
+  border-radius: 20px;
+  background: rgba(255,255,255,.92);
+  box-shadow: 0 20px 42px rgba(41,24,27,.18);
+  backdrop-filter: blur(12px);
+}
+body[data-page="about"] .about-story-authentic img { display: block; width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 14px; }
+body[data-page="about"] .about-story-authentic span { display: block; padding: 8px 5px 1px; font-size: .63rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: #6a5c5a; }
+body[data-page="about"] .about-story-stamp {
+  left: auto;
+  right: -22px;
+  bottom: 72px;
+  width: 126px;
+  height: 126px;
+  padding: 16px;
+  border: 1px solid rgba(255,255,255,.58);
+  outline: 1px solid rgba(229,31,50,.28);
+  outline-offset: 7px;
+  box-shadow: 0 20px 42px rgba(138,18,34,.22);
+}
+body[data-page="about"] .about-story-stamp strong { font-size: 1.92rem; }
+body[data-page="about"] .about-story-stamp span { font-size: .56rem; line-height: 1.35; }
+
+/* ---------- Values: stronger card separation without losing the dark luxury tone ---------- */
+body[data-page="about"] .about-values-section { position: relative; overflow: hidden; }
+body[data-page="about"] .about-values-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 82% 10%, rgba(229,31,50,.11), transparent 35%), radial-gradient(circle at 12% 88%, rgba(255,255,255,.05), transparent 26%);
+}
+body[data-page="about"] .about-values-section .container { position: relative; }
+body[data-page="about"] .about-values-header p { max-width: 500px; color: rgba(255,255,255,.63); font-size: .98rem; }
+body[data-page="about"] .about-value-card {
+  position: relative;
+  min-height: 286px;
+  background: linear-gradient(145deg, rgba(255,255,255,.065), rgba(255,255,255,.018));
+  border-color: rgba(255,255,255,.15);
+  box-shadow: inset 0 1px rgba(255,255,255,.035);
+  overflow: hidden;
+  transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
+}
+body[data-page="about"] .about-value-card:hover { transform: translateY(-5px); border-color: rgba(255,113,128,.4); background: linear-gradient(145deg, rgba(255,255,255,.09), rgba(255,255,255,.025)); }
+body[data-page="about"] .about-value-card span { margin-bottom: 52px; color: #ff6577; }
+body[data-page="about"] .about-value-card h3 { font-size: 2rem; }
+body[data-page="about"] .about-value-card p { color: rgba(255,255,255,.68); }
+body[data-page="about"] .about-value-line { position: absolute; left: 34px; right: 34px; bottom: 0; height: 2px; background: linear-gradient(90deg, #ec253e, transparent); transform: scaleX(.24); transform-origin: left; transition: transform 280ms ease; }
+body[data-page="about"] .about-value-card:hover .about-value-line { transform: scaleX(1); }
+
+/* ---------- Luxury editorial: human, layered and deliberately asymmetric ---------- */
+body[data-page="about"] .about-luxury-section { position: relative; overflow: hidden; padding-block: clamp(96px, 10vw, 150px); }
+body[data-page="about"] .about-luxury-section::before { content:""; position:absolute; width:520px; height:520px; border-radius:50%; border:1px solid rgba(229,31,50,.09); left:-230px; top:14%; pointer-events:none; }
+body[data-page="about"] .about-luxury-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.04fr) minmax(360px, .76fr);
+  gap: clamp(60px, 8vw, 122px);
+  align-items: center;
+}
+body[data-page="about"] .about-luxury-media { position: relative; min-height: 680px; padding: 0 86px 72px 0; }
+body[data-page="about"] .about-luxury-main {
+  position: relative;
+  margin: 0;
+  width: 86%;
+  height: 620px;
+  overflow: hidden;
+  border-radius: 180px 26px 26px 26px;
+  box-shadow: 0 36px 76px rgba(44,28,30,.18);
+}
+body[data-page="about"] .about-luxury-main::after { content:""; position:absolute; inset:0; background:linear-gradient(0deg, rgba(20,12,14,.55), transparent 48%); pointer-events:none; }
+body[data-page="about"] .about-luxury-main img { width:100%; height:100%; object-fit:cover; object-position:58% center; transition: transform 700ms cubic-bezier(.2,.7,.2,1); }
+body[data-page="about"] .about-luxury-main:hover img { transform: scale(1.035); }
+body[data-page="about"] .about-luxury-main figcaption { position:absolute; z-index:2; left:34px; bottom:30px; color:#fff; font-family:"Playfair Display", Georgia, serif; font-size:1.55rem; }
+body[data-page="about"] .about-luxury-detail {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 44%;
+  margin: 0;
+  padding: 8px;
+  border-radius: 24px;
+  background: #fff8f5;
+  box-shadow: 0 26px 58px rgba(48,30,33,.2);
+  transform: rotate(1.3deg);
+}
+body[data-page="about"] .about-luxury-detail img { width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:17px; }
+body[data-page="about"] .about-luxury-detail figcaption { padding:10px 6px 4px; color:#6c5c59; font-size:.61rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
+body[data-page="about"] .about-luxury-signature { position:absolute; left:58%; top:42px; display:grid; place-items:center; width:116px; height:116px; border-radius:50%; color:#fff; background:#e51f32; box-shadow:0 20px 45px rgba(174,23,42,.2); transform:rotate(-7deg); }
+body[data-page="about"] .about-luxury-signature span { font-family:"Playfair Display",Georgia,serif; font-size:2rem; line-height:1; }
+body[data-page="about"] .about-luxury-signature small { margin-top:4px; font-size:.52rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
+body[data-page="about"] .about-luxury-copy { max-width: 600px; }
+body[data-page="about"] .about-luxury-copy h2 { font-size: clamp(3.4rem, 5.2vw, 5.35rem); line-height: .92; letter-spacing: -.035em; }
+body[data-page="about"] .about-luxury-copy > p { font-size: 1.05rem; line-height: 1.75; }
+body[data-page="about"] .about-check-list { gap: 16px; }
+body[data-page="about"] .about-check-list li { color:#514846; line-height:1.55; }
+body[data-page="about"] .about-luxury-note { display:grid; gap:6px; margin:-3px 0 30px; padding:18px 20px; border-left:3px solid #e51f32; background:rgba(255,255,255,.52); border-radius:0 16px 16px 0; }
+body[data-page="about"] .about-luxury-note strong { font-family:"Playfair Display",Georgia,serif; font-size:1.28rem; }
+body[data-page="about"] .about-luxury-note span { color:#746663; font-size:.86rem; line-height:1.5; }
+
+/* ---------- Image-led pathways: compact enough to avoid duplicating Services ---------- */
+body[data-page="about"] .about-pathways-section { padding-block: clamp(86px, 9vw, 132px); }
+body[data-page="about"] .about-pathways-header p { max-width: 440px; font-size: .98rem; color:#716562; }
+body[data-page="about"] .about-pathway-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; }
+body[data-page="about"] .about-pathway-card { border:1px solid #eadfdb; border-radius:24px; overflow:hidden; background:#fff; box-shadow:0 16px 36px rgba(61,43,44,.055); transition:transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease; }
+body[data-page="about"] .about-pathway-card:hover { transform:translateY(-6px); border-color:rgba(229,31,50,.24); box-shadow:0 26px 54px rgba(61,43,44,.11); }
+body[data-page="about"] .about-pathway-image { position:relative; display:block; height:250px; overflow:hidden; background:#efe5e1; }
+body[data-page="about"] .about-pathway-image picture, body[data-page="about"] .about-pathway-image img { width:100%; height:100%; display:block; }
+body[data-page="about"] .about-pathway-image img { object-fit:cover; transition:transform 600ms cubic-bezier(.2,.7,.2,1); }
+body[data-page="about"] .about-pathway-card:hover .about-pathway-image img { transform:scale(1.04); }
+body[data-page="about"] .about-pathway-image::after { content:""; position:absolute; inset:0; background:linear-gradient(0deg,rgba(22,13,15,.54),transparent 58%); }
+body[data-page="about"] .about-pathway-image > span { position:absolute; z-index:2; left:20px; bottom:18px; color:#fff; font-size:.68rem; font-weight:800; letter-spacing:.13em; text-transform:uppercase; }
+body[data-page="about"] .about-pathway-copy { padding:26px 26px 28px; }
+body[data-page="about"] .about-pathway-copy h3 { margin-bottom:12px; font-size:2rem; }
+body[data-page="about"] .about-pathway-copy p { min-height:88px; margin-bottom:20px; color:#716562; font-size:.92rem; line-height:1.62; }
+
+/* ---------- CTA: retain approved brand red but add restrained depth ---------- */
+body[data-page="about"] .about-cta-section { background:#f5ece8; }
+body[data-page="about"] .about-cta-panel { overflow:hidden; box-shadow:0 28px 62px rgba(166,22,42,.15); }
+body[data-page="about"] .about-cta-panel::after { opacity:.55; }
+
+/* ---------- Responsive layout ---------- */
+@media (max-width: 1100px) {
+  body[data-page="about"] .about-story-grid, body[data-page="about"] .about-luxury-grid { grid-template-columns:1fr; }
+  body[data-page="about"] .about-story-copy, body[data-page="about"] .about-luxury-copy { max-width:760px; }
+  body[data-page="about"] .about-story-media { max-width:760px; width:100%; margin-inline:auto; }
+  body[data-page="about"] .about-luxury-media { max-width:780px; width:100%; margin-inline:auto; }
+}
+@media (max-width: 820px) {
+  body[data-page="about"] .about-pathway-grid { grid-template-columns:1fr; }
+  body[data-page="about"] .about-pathway-card { display:grid; grid-template-columns:minmax(210px,.76fr) 1fr; }
+  body[data-page="about"] .about-pathway-image { height:100%; min-height:260px; }
+  body[data-page="about"] .about-pathway-copy p { min-height:0; }
+}
+@media (max-width: 680px) {
+  body[data-page="about"] .about-hero { min-height:650px; }
+  body[data-page="about"] .about-hero-content { padding:96px 0 62px; }
+  body[data-page="about"] .about-hero h1 { font-size:clamp(3.7rem,17vw,5.25rem); }
+  body[data-page="about"] .about-story-grid { gap:46px; }
+  body[data-page="about"] .about-story-media { min-height:480px; padding:0 0 44px 18px; }
+  body[data-page="about"] .about-story-media > picture > img { height:470px; border-radius:28px 28px 28px 80px; }
+  body[data-page="about"] .about-story-authentic { width:48%; }
+  body[data-page="about"] .about-story-stamp { right:2px; bottom:58px; width:104px; height:104px; outline-offset:5px; }
+  body[data-page="about"] .about-story-stamp strong { font-size:1.55rem; }
+  body[data-page="about"] .about-values-grid { grid-template-columns:1fr; }
+  body[data-page="about"] .about-value-card { min-height:230px; }
+  body[data-page="about"] .about-value-card span { margin-bottom:32px; }
+  body[data-page="about"] .about-luxury-media { min-height:540px; padding:0 48px 62px 0; }
+  body[data-page="about"] .about-luxury-main { width:92%; height:500px; border-radius:120px 22px 22px 22px; }
+  body[data-page="about"] .about-luxury-detail { width:47%; }
+  body[data-page="about"] .about-luxury-signature { left:auto; right:18px; top:22px; width:88px; height:88px; }
+  body[data-page="about"] .about-luxury-signature span { font-size:1.55rem; }
+  body[data-page="about"] .about-pathway-card { display:block; }
+  body[data-page="about"] .about-pathway-image { height:245px; min-height:0; }
+}
+@media (max-width: 430px) {
+  body[data-page="about"] .about-story-authentic { width:55%; }
+  body[data-page="about"] .about-story-stamp { width:94px; height:94px; }
+  body[data-page="about"] .about-luxury-media { min-height:490px; padding-right:30px; }
+  body[data-page="about"] .about-luxury-main { height:440px; }
+  body[data-page="about"] .about-luxury-detail { width:52%; right:-2px; }
+  body[data-page="about"] .about-luxury-signature { display:none; }
+}
+
+/* Motion accessibility: all content remains visible without animation. */
+@media (prefers-reduced-motion: reduce) {
+  body[data-page="about"] .about-hero-media img,
+  body[data-page="about"] .about-luxury-main img,
+  body[data-page="about"] .about-pathway-image img,
+  body[data-page="about"] .about-value-card { animation:none !important; transition:none !important; transform:none !important; }
+}
+
+/* Picture wrappers are explicit block-level sizing containers so WebP srcset
+   variants preserve the exact same crops as the JPEG fallbacks. */
+body[data-page="about"] .about-hero-media picture,
+body[data-page="about"] .about-luxury-main picture,
+body[data-page="about"] .about-luxury-detail picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ========================================================================== 
+   V15 refinement pass — visual depth, blush pathway cards and shared footer
+   --------------------------------------------------------------------------
+   These overrides stay page-scoped. The approved Home and Services files are
+   intentionally not edited; future developers can remove this block without
+   affecting those pages.
+   ========================================================================== */
+
+/* WHAT MATTERS HERE
+   Use one quiet salon-process photograph behind the entire philosophy section.
+   The cards stay text-only because they communicate values, not service types. */
+body[data-page="about"] .about-values-section {
+  isolation: isolate;
+  background: #120d0e;
+}
+body[data-page="about"] .about-values-section::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: -5%;
+  pointer-events: none;
+  background-image: image-set(
+    url("../images/about/values-bg-1600.webp") 1x,
+    url("../images/about/values-bg-2400.webp") 2x
+  );
+  background-repeat: no-repeat;
+  background-position: 50% 46%;
+  background-size: cover;
+  opacity: .34;
+  filter: saturate(.78) contrast(1.06);
+  transform: scale(1.055);
+  animation: aboutValuesDrift 22s ease-in-out infinite alternate;
+}
+body[data-page="about"] .about-values-section::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(13,8,9,.94) 0%, rgba(13,8,9,.82) 48%, rgba(13,8,9,.76) 100%),
+    radial-gradient(circle at 82% 12%, rgba(229,31,50,.17), transparent 32%),
+    linear-gradient(0deg, rgba(9,5,6,.62), transparent 58%);
+}
+body[data-page="about"] .about-values-section .container {
+  position: relative;
+  z-index: 2;
+}
+body[data-page="about"] .about-values-header p {
+  color: rgba(255,255,255,.76);
+  font-size: 1rem;
+  line-height: 1.72;
+}
+body[data-page="about"] .about-value-card {
+  border-color: rgba(255,255,255,.18);
+  background: linear-gradient(145deg, rgba(23,16,18,.76), rgba(15,10,11,.54));
+  box-shadow: inset 0 1px rgba(255,255,255,.06), 0 22px 48px rgba(0,0,0,.18);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+body[data-page="about"] .about-value-card:hover {
+  border-color: rgba(255,113,128,.48);
+  background: linear-gradient(145deg, rgba(38,25,28,.84), rgba(16,10,12,.66));
+}
+body[data-page="about"] .about-value-card p {
+  color: rgba(255,255,255,.79);
+  line-height: 1.68;
+}
+@keyframes aboutValuesDrift {
+  from { transform: scale(1.055) translate3d(0,0,0); }
+  to { transform: scale(1.095) translate3d(-1.2%, -.6%, 0); }
+}
+
+/* STORY / LUXURY READABILITY
+   Small contrast increases improve laptop and mobile readability while keeping
+   the same approved typography and composition. */
+body[data-page="about"] .about-story-copy p { color: #574e4c; }
+body[data-page="about"] .about-story-points span {
+  padding: 10px 13px;
+  color: #554a48;
+  font-size: .7rem;
+}
+body[data-page="about"] .about-luxury-copy > p { color: #554b49; }
+body[data-page="about"] .about-luxury-note {
+  background: rgba(255,246,247,.78);
+  border-left-color: #e51f32;
+}
+body[data-page="about"] .about-luxury-signature {
+  width: 104px;
+  height: 104px;
+  box-shadow: 0 18px 38px rgba(174,23,42,.18);
+}
+
+/* A SALON FOR REAL LIFE
+   Keep the approved photography, but replace the stark white lower card body
+   with an almost-white blush so the cards connect to the Hair Xpressions red. */
+body[data-page="about"] .about-pathway-card {
+  border-color: #f0d9dc;
+  background: #fff5f6;
+  box-shadow: 0 18px 40px rgba(61,43,44,.07);
+}
+body[data-page="about"] .about-pathway-card:hover {
+  border-color: rgba(229,31,50,.3);
+  box-shadow: 0 28px 58px rgba(61,43,44,.13);
+}
+body[data-page="about"] .about-pathway-copy {
+  background: linear-gradient(180deg, #fff7f7 0%, #fff1f3 100%);
+}
+body[data-page="about"] .about-pathways-header p {
+  color: #5f5552;
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+/* VISIT HAIR XPRESSIONS
+   A high-resolution salon photograph sits below a strong brand-red overlay.
+   Background-position movement is intentionally slow so the CTA feels alive
+   without competing with the booking message. */
+body[data-page="about"] .about-cta-panel {
+  background-image:
+    linear-gradient(92deg, rgba(219,24,49,.96) 0%, rgba(224,26,51,.91) 48%, rgba(178,13,38,.84) 100%),
+    image-set(
+      url("../images/about/visit-bg-1600.webp") 1x,
+      url("../images/about/visit-bg-2400.webp") 2x
+    );
+  background-repeat: no-repeat;
+  background-size: auto, 108%;
+  background-position: 0 0, 50% 50%;
+  box-shadow: 0 30px 66px rgba(166,22,42,.2);
+  animation: aboutVisitDrift 18s ease-in-out infinite alternate;
+}
+body[data-page="about"] .about-cta-panel p { color: rgba(255,255,255,.9); }
+@keyframes aboutVisitDrift {
+  from { background-position: 0 0, 50% 48%; }
+  to { background-position: 0 0, 53% 52%; }
+}
+
+/* FOOTER
+   Mirrors the approved Services/Home footer content hierarchy and brand strip. */
+body[data-page="about"] .home-footer-v5 {
+  position: relative;
+  background:
+    radial-gradient(circle at 90% 10%, rgba(218,44,66,.12), transparent 22%),
+    linear-gradient(180deg, #100b0c 0%, #090607 100%);
+}
+body[data-page="about"] .footer-brand-strip {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  align-items: center;
+  padding: 22px 0;
+  border-top: 1px solid rgba(255,255,255,.08);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+body[data-page="about"] .footer-social-area,
+body[data-page="about"] .footer-payment-area {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+body[data-page="about"] .footer-small-label {
+  color: rgba(255,255,255,.58);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+body[data-page="about"] .social-logo-links,
+body[data-page="about"] .payment-logo-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+body[data-page="about"] .social-logo-links a {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 50%;
+  background: rgba(255,255,255,.05);
+  transition: transform 200ms ease, background 200ms ease;
+}
+body[data-page="about"] .social-logo-links a:hover,
+body[data-page="about"] .social-logo-links a:focus-visible {
+  transform: translateY(-3px);
+  background: rgba(255,255,255,.09);
+}
+body[data-page="about"] .social-logo-links img { width: 19px; height: 19px; }
+body[data-page="about"] .payment-logo-row img {
+  width: 42px;
+  max-height: 26px;
+  padding: 5px;
+  border-radius: 6px;
+  background: #fff;
+}
+body[data-page="about"] .footer-bottom-refined { justify-content: flex-start; }
+
+/* FLOATING MESSAGE / CALL
+   Same compact interaction model as Services: icon-only at rest, expands left
+   on desktop hover/focus, and remains icon-only on smaller touch screens. */
+body[data-page="about"] .footer-contact-fab {
+  position: fixed;
+  right: max(18px, env(safe-area-inset-right));
+  bottom: max(18px, env(safe-area-inset-bottom));
+  z-index: 150;
+  display: grid;
+  gap: 10px;
+  justify-items: end;
+}
+body[data-page="about"] .fab-action {
+  display: flex;
+  gap: 0;
+  align-items: center;
+  width: 58px;
+  min-width: 58px;
+  min-height: 58px;
+  padding: 10px;
+  overflow: hidden;
+  border-radius: 19px;
+  color: #fff;
+  box-shadow: 0 18px 48px rgba(16,8,10,.22);
+  transition: width 260ms ease, gap 260ms ease, border-radius 260ms ease, transform 200ms ease;
+}
+body[data-page="about"] .fab-action:hover,
+body[data-page="about"] .fab-action:focus-visible {
+  gap: 12px;
+  width: 218px;
+  border-radius: 18px;
+  transform: translateY(-2px);
+}
+body[data-page="about"] .fab-message {
+  background: rgba(17,12,13,.92);
+  border: 1px solid rgba(255,255,255,.12);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+body[data-page="about"] .fab-call { background: linear-gradient(135deg, #f32640, #cf102b); }
+body[data-page="about"] .fab-icon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: rgba(255,255,255,.12);
+}
+body[data-page="about"] .fab-icon svg { width: 22px; height: 22px; }
+body[data-page="about"] .fab-action > span:last-child {
+  display: grid;
+  min-width: 138px;
+  opacity: 0;
+  transform: translateX(8px);
+  transition: opacity 180ms ease 40ms, transform 220ms ease 40ms;
+}
+body[data-page="about"] .fab-action:hover > span:last-child,
+body[data-page="about"] .fab-action:focus-visible > span:last-child {
+  opacity: 1;
+  transform: translateX(0);
+}
+body[data-page="about"] .fab-action small { color: rgba(255,255,255,.68); font-size: .66rem; }
+body[data-page="about"] .fab-action strong { font-size: .88rem; }
+
+/* Responsive finishing pass. */
+@media (max-width: 900px) {
+  body[data-page="about"] .footer-brand-strip {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+@media (max-width: 680px) {
+  body[data-page="about"] { padding-bottom: 76px; }
+  body[data-page="about"] .about-values-section::before { background-position: 58% 48%; }
+  body[data-page="about"] .about-cta-panel {
+    background-size: auto, cover;
+    background-position: 0 0, 62% 50%;
+  }
+  body[data-page="about"] .footer-payment-area {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  body[data-page="about"] .footer-contact-fab {
+    right: 12px;
+    bottom: 12px;
+    display: flex;
+  }
+  body[data-page="about"] .fab-action,
+  body[data-page="about"] .fab-action:hover,
+  body[data-page="about"] .fab-action:focus-visible {
+    min-width: 0;
+    width: 52px;
+    height: 52px;
+    min-height: 52px;
+    padding: 7px;
+    border-radius: 50%;
+    transform: none;
+  }
+  body[data-page="about"] .fab-action > span:last-child,
+  body[data-page="about"] .fab-action:hover > span:last-child,
+  body[data-page="about"] .fab-action:focus-visible > span:last-child { display: none; }
+  body[data-page="about"] .fab-icon { width: 38px; height: 38px; }
+}
+
+/* Respect OS motion preferences without hiding any content. */
+@media (prefers-reduced-motion: reduce) {
+  body[data-page="about"] .about-values-section::before,
+  body[data-page="about"] .about-cta-panel,
+  body[data-page="about"] .fab-action,
+  body[data-page="about"] .social-logo-links a {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
